@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{53D91D0D-D43B-4A94-ACBF-172E69CDF2D9}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>IngredientCalculator</RootNamespace>
+    <AssemblyName>IngredientCalculator</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\Converters.cs" />
+    <Compile Include="Models\Recipe.cs" />
+    <Compile Include="Models\SuperItem.cs" />
+    <Compile Include="Repositories\IIngredient.cs" />
+    <Compile Include="Repositories\Ingredients\IIngredientRepository.cs" />
+    <Compile Include="Models\Ingredient.cs" />
+    <Compile Include="Repositories\RecipeCosts\FakeRecipeCostRepository.cs" />
+    <Compile Include="Repositories\RecipeCosts\IRecipeCostsRepository.cs" />
+    <Compile Include="Repositories\RecipeCosts\RecipeCostSQLRepository.cs" />
+    <Compile Include="Repositories\RecipeIngredients\FakeRecipeIngredientsRepository.cs" />
+    <Compile Include="Repositories\RecipeIngredients\IRecipeIngredientsRepository.cs" />
+    <Compile Include="Models\RecipeIngredients.cs" />
+    <Compile Include="Models\RecipeComponent.cs" />
+    <Compile Include="Models\RecipeCost.cs" />
+    <Compile Include="Business\RecipeCostCalculator.cs" />
+    <Compile Include="Repositories\Ingredients\FakeIngredientRepository.cs" />
+    <Compile Include="Repositories\Ingredients\IngredientSQLRepository.cs" />
+    <Compile Include="Repositories\RecipeIngredients\RecipeIngredientsSQLRepository.cs" />
+    <Compile Include="Repositories\Recipes\FakeRecipeRepository.cs" />
+    <Compile Include="Repositories\Recipes\IRecipeRepository.cs" />
+    <Compile Include="Repositories\Recipes\RecipeSQLRepository.cs" />
+    <Compile Include="Services\DataService.cs" />
+    <Compile Include="Services\Ingredients\IngredientDataService.cs" />
+    <Compile Include="Services\RecipeCosts\RecipeCostsDataService.cs" />
+    <Compile Include="Services\RecipeIngredients\RecipeIngredientsDataService.cs" />
+    <Compile Include="Services\Recipes\RecipeDataService.cs" />
+    <Compile Include="ViewModels\IngredientViewModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Factories\RepositoryFactory.cs" />
+    <Compile Include="ViewModels\RecipeCostViewModel.cs" />
+    <Compile Include="ViewModels\RecipeIngredientsViewModel.cs" />
+    <Compile Include="ViewModels\RecipeViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
