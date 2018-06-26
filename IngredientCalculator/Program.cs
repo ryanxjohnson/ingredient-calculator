@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using IngredientCalculator.Business;
 using IngredientCalculator.Models;
 using IngredientCalculator.Services;
+using IngredientCalculator.UserInterface;
 using IngredientCalculator.ViewModels;
 
 namespace IngredientCalculator
@@ -12,16 +14,23 @@ namespace IngredientCalculator
         static void Main(string[] args)
         {
             //Seed();
-            var rcvm = new RecipeCostViewModel(); // readonly
+            //GetSomeData();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new MainForm());
+        }
 
+        private static void GetSomeData()
+        {
+            var rcvm = new RecipeCostViewModel(); // readonly
             rcvm.GetRecipeCost(1);
-            PrintData((IEnumerable<RecipeCost>)rcvm.Items);
+            PrintData((IEnumerable<RecipeCost>) rcvm.Items);
             rcvm.ClearData();
 
             Console.WriteLine();
 
             rcvm.GetRecipeCost(2);
-            PrintData((IEnumerable<RecipeCost>)rcvm.Items);
+            PrintData((IEnumerable<RecipeCost>) rcvm.Items);
             rcvm.ClearData();
         }
 

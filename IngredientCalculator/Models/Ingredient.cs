@@ -1,6 +1,6 @@
 ﻿namespace IngredientCalculator.Models
 {
-    public class Ingredient : SuperItem
+    public class Ingredient
     {
         public int Id;
         public string IngredientName { get; set; }
