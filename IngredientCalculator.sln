@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngredientCalculator.Test",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{547483BB-0A48-44A9-B062-C241479F2AC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngredientCalculatorUserInterface", "IngredientCalculatorUserInterface\IngredientCalculatorUserInterface.csproj", "{53757B57-583E-4967-805A-AC5BC4F7C76A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{23AF2907-8F98-4CA3-B42E-880A4D09DFF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23AF2907-8F98-4CA3-B42E-880A4D09DFF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23AF2907-8F98-4CA3-B42E-880A4D09DFF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53757B57-583E-4967-805A-AC5BC4F7C76A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53757B57-583E-4967-805A-AC5BC4F7C76A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53757B57-583E-4967-805A-AC5BC4F7C76A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53757B57-583E-4967-805A-AC5BC4F7C76A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
