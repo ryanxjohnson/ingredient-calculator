@@ -6,10 +6,10 @@ namespace IngredientCalculator.Repositories.Recipes
     public interface IRecipeRepository : IIngredient
     {
         IEnumerable<Recipe> GetRecipes();
-        Recipe GetRecipe(string name);
-        void AddRecipe(string name, int servings);
-        void UpdateRecipe(string name, Recipe recipe);
-        void DeleteRecipe(string name);
+        Recipe GetRecipe(int id);
+        void AddRecipe(Recipe recipe);
+        void UpdateRecipe(Recipe recipe);
+        void DeleteRecipe(int id);
         void UpdateRecipes(IEnumerable<Recipe> recipes);
     }
 }

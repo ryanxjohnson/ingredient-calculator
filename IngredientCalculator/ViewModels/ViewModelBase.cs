@@ -1,7 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using IngredientCalculator.Annotations;
 using IngredientCalculator.Repositories;
 
 namespace IngredientCalculator.ViewModels
@@ -15,33 +12,36 @@ namespace IngredientCalculator.ViewModels
 
         public string RepositoryType() => Repository.GetType().ToString();
 
-        private IEnumerable<object> items;
-        public IEnumerable<object> Items
+        public IEnumerable<object> Items { get; set; }
+
+        public void AddData(object data)
         {
-            get => items;
-            set
-            {
-                items = value;
-                OnPropertyChanged();
-            }
+            Repository.AddData(data);
         }
 
-        public void FetchData()
+        public IEnumerable<object> FetchData()
         {
-            Items = Repository.FetchData();
+            return Items ?? Repository.FetchData();
+        }
+
+        public object FetchData(int id)
+        {
+            return Repository.FetchData(id);
+        }
+
+        public void UpdateData(object data)
+        {
+            Repository.UpdateData(data);
+        }
+
+        public void DeleteData(int id)
+        {
+            Repository.DeleteData(id);
         }
 
         public void ClearData()
         {
             Items = new List<object>();
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

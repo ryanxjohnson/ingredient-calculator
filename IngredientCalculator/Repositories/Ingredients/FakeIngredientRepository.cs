@@ -16,23 +16,18 @@ namespace IngredientCalculator.Repositories.Ingredients
             };
         }
 
-        public Ingredient GetIngredient(string name)
+        public Ingredient GetIngredient(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void AddIngredient(string ingredientName, decimal totalPackageCost, double totalPackageVolume,
-            int totalPackageVolumeUnitId, decimal costPerUnit)
+        public void AddIngredient(Ingredient ingredient)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateIngredient(string name, Ingredient ingredient)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void DeleteIngredient(string name)
+        public void UpdateIngredient(Ingredient ingredient)
         {
             throw new NotImplementedException();
         }
@@ -42,10 +37,40 @@ namespace IngredientCalculator.Repositories.Ingredients
             throw new NotImplementedException();
         }
 
+        public void DeleteIngredient(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         public IEnumerable<object> FetchData()
         {
             return GetIngredients();
+        }
+
+        public void AddData(object data)
+        {
+            AddIngredient((Ingredient)data);
+        }
+
+        public object FetchData(int id)
+        {
+            return GetIngredient(id);
+        }
+
+        public void UpdateData(object data)
+        {
+            UpdateIngredient((Ingredient)data);
+        }
+
+        public void DeleteData(int id)
+        {
+            DeleteIngredient(id);
+        }
+
+        public void UpdateData(int id, object data)
+        {
+            UpdateIngredient((Ingredient)data);
         }
     }
 }

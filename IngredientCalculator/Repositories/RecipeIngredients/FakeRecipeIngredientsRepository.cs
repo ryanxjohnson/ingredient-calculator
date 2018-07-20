@@ -14,22 +14,22 @@ namespace IngredientCalculator.Repositories.RecipeIngredients
             };
         }
 
-        public Models.RecipeIngredients GetRecipeIngredients(string name)
+        public Models.RecipeIngredients GetRecipeIngredients(int id)
         {
             throw new System.NotImplementedException();
         }
 
-        public void AddRecipeIngredients(int recipeId, int ingredientId, double ingredientAmount, int recipeIngredientUnitId)
+        public void AddRecipeIngredients(Models.RecipeIngredients recipeIngredients)
         {
             throw new System.NotImplementedException();
         }
 
-        public void UpdateRecipeIngredients(string name, Models.RecipeIngredients ingredient)
+        public void UpdateRecipeIngredients(Models.RecipeIngredients ingredient)
         {
             throw new System.NotImplementedException();
         }
 
-        public void DeleteRecipeIngredients(string name)
+        public void DeleteRecipeIngredients(int id)
         {
             throw new System.NotImplementedException();
         }
@@ -43,6 +43,26 @@ namespace IngredientCalculator.Repositories.RecipeIngredients
         public IEnumerable<object> FetchData()
         {
             return GetRecipeIngredients();
+        }
+
+        public void AddData(object data)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public object FetchData(int id)
+        {
+            return GetRecipeIngredients(id);
+        }
+
+        public void UpdateData(object data)
+        {
+            UpdateRecipeIngredients((Models.RecipeIngredients)data);
+        }
+
+        public void DeleteData(int id)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

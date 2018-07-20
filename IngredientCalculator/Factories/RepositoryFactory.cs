@@ -6,7 +6,7 @@ using IngredientCalculator.Repositories.Recipes;
 
 namespace IngredientCalculator.Factories
 {
-    public class RepositoryFactory
+    public static class RepositoryFactory
     {
         public static IIngredientRepository GetIngredientRepository(string repo)
         {

@@ -8,7 +8,8 @@ namespace IngredientCalculator.Services
     {
         private static string SetConnectionString()
         {
-            return ConfigurationManager.ConnectionStrings["Dev"].ConnectionString;
+            //return ConfigurationManager.ConnectionStrings["Dev"].ConnectionString;
+            return @"Data Source=.;Initial Catalog=IngredientCalculator;Integrated Security=True";
         }
 
         public static SqlConnection CreateConnection()
@@ -16,16 +17,26 @@ namespace IngredientCalculator.Services
             return new SqlConnection(SetConnectionString());
         }
 
-        public static void CreateUpdate(SqlCommand sqlCommand)
+        public static SqlCommand CreateSqlStoredProcCommand(SqlConnection connection, string storedProc)
         {
-            using (var conn = CreateConnection())
+            return new SqlCommand
             {
-                sqlCommand.Connection = conn;
-
-                conn.Open();
-                sqlCommand.ExecuteNonQuery();
-            }
+                CommandType = CommandType.StoredProcedure,
+                CommandText = storedProc,
+                Connection = connection
+            };
         }
+
+        //public static void CreateUpdate(SqlCommand sqlCommand)
+        //{
+        //    using (var conn = CreateConnection())
+        //    {
+        //        sqlCommand.Connection = conn;
+
+        //        conn.Open();
+        //        sqlCommand.ExecuteNonQuery();
+        //    }
+        //}
 
         public static void ClearAllData()
         {

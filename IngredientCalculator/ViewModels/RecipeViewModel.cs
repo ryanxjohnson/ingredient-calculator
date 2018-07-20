@@ -13,14 +13,14 @@ namespace IngredientCalculator.ViewModels
             Repository = RepositoryFactory.GetRecipeRepository(repositoryType);
         }
 
-        public void AddData(string name, int servings)
+        public void AddData(Recipe recipe)
         {
-            Repository.AddRecipe(name, servings);
+            Repository.AddRecipe(recipe);
         }
 
-        public void UpdateData(string name, Recipe recipe)
+        public void UpdateData(Recipe recipe)
         {
-            Repository.UpdateRecipe(name, recipe);
+            Repository.UpdateRecipe(recipe);
         }
     }
 }

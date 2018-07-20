@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using IngredientCalculator.Repositories.Ingredients;
+using NUnit.Framework;
+using Rhino.Mocks;
 
 namespace IngredientCalculatorTests.RepositoryTests
 {
@@ -8,6 +10,7 @@ namespace IngredientCalculatorTests.RepositoryTests
         [Test]
         public void TestMethod1()
         {
+            var mock = MockRepository.GenerateStub<IIngredientRepository>();
         }
     }
 }

@@ -15,12 +15,20 @@ namespace IngredientCalculator.ViewModels
 
         public void AddData(int recipeId, int ingredientId, double ingredientAmount, int recipeIngredientUnitId)
         {
-            Repository.AddRecipeIngredients(recipeId, ingredientId, ingredientAmount, recipeIngredientUnitId);
+            var recipe = new RecipeIngredients
+            {
+                RecipeId = recipeId,
+                IngredientId = ingredientId,
+                IngredientAmount = ingredientAmount,
+                RecipeIngredientUnitId = recipeIngredientUnitId
+            };
+
+            Repository.AddRecipeIngredients(recipe);
         }
 
-        public void UpdateData(string name, RecipeIngredients recipeIngredients)
+        public void UpdateData(RecipeIngredients recipeIngredients)
         {
-            Repository.UpdateRecipeIngredients(name, recipeIngredients);
+            Repository.UpdateRecipeIngredients(recipeIngredients);
         }
     }
 }

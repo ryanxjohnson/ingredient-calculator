@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace IngredientCalculator.Repositories
 {
-    public interface IIngredient : INotifyPropertyChanged
+    public interface IIngredient
     {
         IEnumerable<object> FetchData();
+        void AddData(object data);
+        object FetchData(int id);
+        void UpdateData(object data);
+        void DeleteData(int id);
     }
 }

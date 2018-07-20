@@ -15,6 +15,31 @@ namespace IngredientCalculator.Repositories.Recipes
             return RecipeDataService.GetRecipes();
         }
 
+        public Recipe GetRecipe(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddRecipe(Recipe recipe)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateRecipe(Recipe recipe)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateRecipe(int id, Recipe recipe)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteRecipe(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Recipe GetRecipe(string name)
         {
             throw new NotImplementedException();
@@ -76,6 +101,26 @@ namespace IngredientCalculator.Repositories.Recipes
         public IEnumerable<object> FetchData()
         {
             return GetRecipes();
+        }
+
+        public void AddData(object data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object FetchData(int id)
+        {
+            return GetRecipe(id);
+        }
+
+        public void UpdateData(object data)
+        {
+            UpdateRecipe((Recipe)data);
+        }
+
+        public void DeleteData(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

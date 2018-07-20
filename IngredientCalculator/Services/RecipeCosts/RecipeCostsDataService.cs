@@ -14,6 +14,7 @@ namespace IngredientCalculator.Services.RecipeCosts
             var list = new List<RecipeComponent>();
             using (var conn = DataService.CreateConnection())
             {
+                var cmd = DataService.CreateSqlStoredProcCommand(conn, "sp_GetRecipeComponents");
                 var command = new SqlCommand
                 {
                     CommandType = CommandType.StoredProcedure,
@@ -68,14 +69,13 @@ namespace IngredientCalculator.Services.RecipeCosts
                 Recipe = new Recipe
                 {
                     Id = Convert.ToInt32(reader[0]),
-                    RecipeName = Convert.ToString(reader[1]),
-                    Servings = Convert.ToInt32(reader[2])
+                    Servings = Convert.ToInt32(reader[1])
                 },
-                IngredientName = Convert.ToString(reader[3]),
-                IngredientAmount = Convert.ToDouble(reader[4]),
-                ConvertFromUnitName = Convert.ToString(reader[5]),
-                CostPerUnit = Convert.ToDecimal(reader[6]),
-                ConvertToUnitName = Convert.ToString(reader[7])
+                IngredientName = Convert.ToString(reader[2]),
+                IngredientAmount = Convert.ToDouble(reader[3]),
+                ConvertFromUnitName = Convert.ToString(reader[4]),
+                CostPerUnit = Convert.ToDecimal(reader[5]),
+                ConvertToUnitName = Convert.ToString(reader[6])
             };
         }
     }

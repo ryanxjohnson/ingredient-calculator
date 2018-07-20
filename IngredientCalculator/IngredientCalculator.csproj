@@ -8,9 +8,12 @@
     <OutputType>Library</OutputType>
     <RootNamespace>IngredientCalculator</RootNamespace>
     <AssemblyName>IngredientCalculator</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,10 +38,31 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,10 +73,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\Converters.cs" />
+    <Compile Include="Models\IngredientType.cs" />
     <Compile Include="Models\Recipe.cs" />
+    <Compile Include="Models\Unit.cs" />
     <Compile Include="Repositories\IIngredient.cs" />
     <Compile Include="Repositories\Ingredients\IIngredientRepository.cs" />
     <Compile Include="Models\Ingredient.cs" />
+    <Compile Include="Repositories\IngredientTypes\IIngredientTypeRepository.cs" />
+    <Compile Include="Repositories\IngredientTypes\IngredientTypeSqlRepository.cs" />
     <Compile Include="Repositories\RecipeCosts\FakeRecipeCostRepository.cs" />
     <Compile Include="Repositories\RecipeCosts\IRecipeCostsRepository.cs" />
     <Compile Include="Repositories\RecipeCosts\RecipeCostSQLRepository.cs" />
@@ -68,11 +96,15 @@
     <Compile Include="Repositories\Recipes\FakeRecipeRepository.cs" />
     <Compile Include="Repositories\Recipes\IRecipeRepository.cs" />
     <Compile Include="Repositories\Recipes\RecipeSQLRepository.cs" />
+    <Compile Include="Repositories\Units\IUnitRepository.cs" />
+    <Compile Include="Repositories\Units\UnitSQLRepository.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Services\Ingredients\IngredientDataService.cs" />
+    <Compile Include="Services\IngredientTypes\IngredientTypesDataService.cs" />
     <Compile Include="Services\RecipeCosts\RecipeCostsDataService.cs" />
     <Compile Include="Services\RecipeIngredients\RecipeIngredientsDataService.cs" />
     <Compile Include="Services\Recipes\RecipeDataService.cs" />
+    <Compile Include="Services\Units\UnitDataService.cs" />
     <Compile Include="ViewModels\IngredientViewModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -85,6 +117,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

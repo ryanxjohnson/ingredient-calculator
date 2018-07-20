@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using IngredientCalculator.Business;
 using IngredientCalculator.Models;
 using IngredientCalculator.Services;
-using IngredientCalculator.UserInterface;
 using IngredientCalculator.ViewModels;
 
 namespace IngredientCalculator
@@ -15,9 +14,15 @@ namespace IngredientCalculator
         {
             //Seed();
             //GetSomeData();
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+        }
+
+        private void Test()
+        {
+            var ing = new Ingredient {IngredientName = "bread"};
+            var list = new List<RecipeIngredientInfo>{new RecipeIngredientInfo{Ingredient = ing, IngredientAmount = 1, RecipeIngredientUnitId = 5}};
+            var rec = new Recipe{RecipeName = "toast", RecipeIngredients = list};
+
+            
         }
 
         private static void GetSomeData()
@@ -49,15 +54,15 @@ namespace IngredientCalculator
             var rivm = new RecipeIngredientsViewModel();
 
             // Seed Recipes
-            rvm.AddData("Oatmeal with Honey", 1);
-            rvm.AddData("Omelet with Goat Cheese", 1);
+            //rvm.AddData("Oatmeal with Honey", 1);
+            //rvm.AddData("Omelet with Goat Cheese", 1);
 
             // Seed Ingredients
-            ivm.AddData("Blueberries", 1.99m, 10, 1, .10m);
-            ivm.AddData("Oatmeal", 4.49m, 24, 1, .18m);
-            ivm.AddData("Honey", 6.49m, 16, 1, .41m);
-            ivm.AddData("Goat Cheese", 4.99m, 3.5, 1, 1.43m);
-            ivm.AddData("Eggs", 2.79m, 12, 5, .23m);
+            //ivm.AddData("Blueberries", 1.99m, 10, 1, .10m);
+            //ivm.AddData("Oatmeal", 4.49m, 24, 1, .18m);
+            //ivm.AddData("Honey", 6.49m, 16, 1, .41m);
+            //ivm.AddData("Goat Cheese", 4.99m, 3.5, 1, 1.43m);
+            //ivm.AddData("Eggs", 2.79m, 12, 5, .23m);
 
             // Seed Recipe Ingredients
             // Oatmeal

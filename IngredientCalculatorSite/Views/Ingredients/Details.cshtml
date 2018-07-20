@@ -1,0 +1,74 @@
+﻿@model IngredientCalculator.Models.Ingredient
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ingredient</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IngredientName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IngredientName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IngredientType.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IngredientType.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPackageCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPackageCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPackageVolume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPackageVolume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unit.UnitName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostPerUnit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CostPerUnit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpirationDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpirationDays)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

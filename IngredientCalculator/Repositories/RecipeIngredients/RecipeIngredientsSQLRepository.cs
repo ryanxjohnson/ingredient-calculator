@@ -14,6 +14,31 @@ namespace IngredientCalculator.Repositories.RecipeIngredients
             return RecipeIngredientsDataService.GetRecipeIngredients();
         }
 
+        public Models.RecipeIngredients GetRecipeIngredients(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddRecipeIngredients(Models.RecipeIngredients recipeIngredients)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateRecipeIngredients(Models.RecipeIngredients ingredient)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateRecipeIngredients(int id, Models.RecipeIngredients ingredient)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteRecipeIngredients(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Models.RecipeIngredients GetRecipeIngredients(string recipeName)
         {
             throw new NotImplementedException();
@@ -33,7 +58,7 @@ namespace IngredientCalculator.Repositories.RecipeIngredients
                 }
             };
 
-            DataService.CreateUpdate(command);
+            //DataService.CreateUpdate(command);
         }
 
         public void UpdateRecipeIngredients(string name, Models.RecipeIngredients recipeIngredients)
@@ -50,7 +75,7 @@ namespace IngredientCalculator.Repositories.RecipeIngredients
                 }
             };
             
-            DataService.CreateUpdate(command);
+            //DataService.CreateUpdate(command);
         }
 
         public void DeleteRecipeIngredients(string name)
@@ -67,6 +92,31 @@ namespace IngredientCalculator.Repositories.RecipeIngredients
         public IEnumerable<object> FetchData()
         {
             return GetRecipeIngredients();
+        }
+
+        public void AddData(object data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object FetchData(int id)
+        {
+            return GetRecipeIngredients(id);
+        }
+
+        public void UpdateData(object data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteData(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateData(int id, object data)
+        {
+            UpdateRecipeIngredients(id, (Models.RecipeIngredients)data);
         }
     }
 }

@@ -88,5 +88,25 @@ namespace IngredientCalculator.Repositories.RecipeCosts
         {
             return GetRecipeCosts();
         }
+
+        public void AddData(object data)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public object FetchData(int id)
+        {
+            return GetRecipeCost(id);
+        }
+
+        public void UpdateData(object data)
+        {
+            
+        }
+
+        public void DeleteData(int id)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
