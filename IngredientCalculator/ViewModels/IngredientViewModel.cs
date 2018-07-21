@@ -1,6 +1,5 @@
 ﻿using IngredientCalculator.Factories;
 using IngredientCalculator.Repositories;
-using IngredientCalculator.Repositories.Ingredients;
 
 namespace IngredientCalculator.ViewModels
 {

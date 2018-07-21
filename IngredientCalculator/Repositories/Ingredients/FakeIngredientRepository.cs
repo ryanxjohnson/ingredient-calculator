@@ -68,6 +68,11 @@ namespace IngredientCalculator.Repositories.Ingredients
             DeleteIngredient(id);
         }
 
+        public int GetNumberOfIngredients()
+        {
+            throw new NotImplementedException();
+        }
+
         public void UpdateData(int id, object data)
         {
             UpdateIngredient((Ingredient)data);

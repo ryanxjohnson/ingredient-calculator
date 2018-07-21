@@ -75,6 +75,7 @@
     <Compile Include="Business\Converters.cs" />
     <Compile Include="Models\IngredientType.cs" />
     <Compile Include="Models\Recipe.cs" />
+    <Compile Include="Models\RecipeIngredientInfo.cs" />
     <Compile Include="Models\Unit.cs" />
     <Compile Include="Repositories\IIngredient.cs" />
     <Compile Include="Repositories\Ingredients\IIngredientRepository.cs" />
