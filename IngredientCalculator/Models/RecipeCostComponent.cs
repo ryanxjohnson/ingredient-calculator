@@ -1,6 +1,6 @@
 ﻿namespace IngredientCalculator.Models
 {
-    public class RecipeComponent
+    public class RecipeCostComponent
     {
         public Recipe Recipe { get; set; }
         public string IngredientName { get; set; }

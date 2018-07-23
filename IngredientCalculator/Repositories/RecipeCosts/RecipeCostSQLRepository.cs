@@ -1,36 +1,24 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
-using IngredientCalculator.Models;
 using IngredientCalculator.Services.RecipeCosts;
 
 namespace IngredientCalculator.Repositories.RecipeCosts
 {
     public class RecipeCostSqlRepository : IRecipeCostsRepository
     {
-        public IEnumerable<RecipeCost> GetRecipeCosts()
+        public IEnumerable<object> FetchData()
         {
             return RecipeCostsDataService.GetRecipeCosts();
         }
 
-        public RecipeCost GetRecipeCost(int id)
+        public object FetchData(int id)
         {
-            return RecipeCostsDataService.GetRecipeCost(id);
+            return RecipeCostsDataService.GetRecipeCosts(id);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public IEnumerable<object> FetchData()
-        {
-            return GetRecipeCosts();
-        }
-
+        #region not implemented
         public void AddData(object data)
         {
             throw new System.NotImplementedException();
-        }
-
-        public object FetchData(int id)
-        {
-            return GetRecipeCost(id);
         }
 
         public void UpdateData(object data)
@@ -42,5 +30,6 @@ namespace IngredientCalculator.Repositories.RecipeCosts
         {
             throw new System.NotImplementedException();
         }
+        #endregion
     }
 }

@@ -34,7 +34,7 @@ namespace IngredientCalculator.Factories
             }
         }
 
-        public static IRecipeIngredientsRepository GetRecipeIngredientsRecipeIngredientsRepository(string repo)
+        public static IRecipeIngredientsRepository GetRecipeIngredientsRepository(string repo)
         {
             switch (repo)
             {

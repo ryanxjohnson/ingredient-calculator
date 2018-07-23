@@ -13,7 +13,7 @@ namespace IngredientCalculator.Business
             return costOfIngredients * recipeCost.Recipe.Servings;
         }
 
-        public static decimal CalculateCostOfIngredients(IEnumerable<RecipeComponent> recipeComponents)
+        public static decimal CalculateCostOfIngredients(IEnumerable<RecipeCostComponent> recipeComponents)
         {
             return Math.Round(recipeComponents.Sum(r => (decimal) (GetConvertedAmount(r.ConvertFromUnitName, r.ConvertToUnitName, r.IngredientAmount) * (double) r.CostPerUnit)), 2);
         }

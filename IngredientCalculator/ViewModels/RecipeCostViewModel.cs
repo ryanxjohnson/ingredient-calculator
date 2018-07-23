@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using IngredientCalculator.Business;
 using IngredientCalculator.Factories;
 using IngredientCalculator.Models;
 using IngredientCalculator.Repositories.RecipeCosts;
@@ -12,11 +13,6 @@ namespace IngredientCalculator.ViewModels
         public RecipeCostViewModel(string repositoryType)
         {
             Repository = RepositoryFactory.GetRecipeCostsRepository(repositoryType);
-        }
-
-        public void GetRecipeCost(int id)
-        {
-            Items = new List<RecipeCost>{ Repository.GetRecipeCost(id) };
         }
     }
 }

@@ -1,0 +1,31 @@
+﻿@model IngredientCalculator.Models.Recipe
+
+@using (Html.BeginForm())
+{
+    <h4>Edit Ingredients</h4>
+    <table class="table">
+        <tr>
+            <th>
+                Amount
+            </th>
+            <th>
+                Unit
+            </th>
+            <th>
+                Ingredient
+            </th>
+            <th>
+                Cost
+            </th>
+            <th></th>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        @foreach (var item in Model.RecipeIngredients)
+        {
+            @Html.Partial("_EditIngredientLineItem", item)
+        }
+        <tr></tr>
+    </table>
+}
+

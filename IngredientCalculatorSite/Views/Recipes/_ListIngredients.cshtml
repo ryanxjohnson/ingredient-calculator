@@ -1,0 +1,34 @@
+﻿@model IngredientCalculator.Models.Recipe
+
+<h3>Ingredients</h3>
+<table class="table">
+    <tr>
+        <th>
+            Amount
+        </th>
+        <th>
+            Unit
+        </th>
+        <th>
+            Ingredient
+        </th>
+        <th></th>
+    </tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    @foreach (var r in Model.RecipeIngredients)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => r.IngredientAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(m => r.Unit.UnitName)
+            </td>
+            <td>
+                @Html.DisplayFor(m => r.Ingredient.IngredientName)
+            </td>
+        </tr>
+    }
+</table>

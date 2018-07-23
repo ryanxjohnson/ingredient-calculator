@@ -8,7 +8,7 @@ namespace IngredientCalculatorTests
     [TestFixture]
     public class CalculatorTests
     {
-        private IEnumerable<RecipeComponent> recipeComponents;
+        private IEnumerable<RecipeCostComponent> recipeComponents;
 
         [SetUp]
         public void Setup()
@@ -31,11 +31,11 @@ namespace IngredientCalculatorTests
         }
 
         // get this from fake repo
-        private static IEnumerable<RecipeComponent> GetRecipeComponents()
+        private static IEnumerable<RecipeCostComponent> GetRecipeComponents()
         {
-            return new List<RecipeComponent>
+            return new List<RecipeCostComponent>
             {
-                new RecipeComponent
+                new RecipeCostComponent
                 {
                     IngredientName = "Oatmeal",
                     IngredientAmount = .33,
@@ -43,7 +43,7 @@ namespace IngredientCalculatorTests
                     CostPerUnit = .18m,
                     ConvertToUnitName = "ounce"
                 },
-                new RecipeComponent
+                new RecipeCostComponent
                 {
                     IngredientName = "Honey",
                     IngredientAmount = 1,

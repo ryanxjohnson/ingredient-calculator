@@ -21,20 +21,18 @@ namespace IngredientCalculator
             var ing = new Ingredient {IngredientName = "bread"};
             var list = new List<RecipeIngredientInfo>{new RecipeIngredientInfo{Ingredient = ing, IngredientAmount = 1, RecipeIngredientUnitId = 5}};
             var rec = new Recipe{RecipeName = "toast", RecipeIngredients = list};
-
-            
         }
 
         private static void GetSomeData()
         {
             var rcvm = new RecipeCostViewModel(); // readonly
-            rcvm.GetRecipeCost(1);
+            //rcvm.GetRecipeCost(1);
             PrintData((IEnumerable<RecipeCost>) rcvm.Items);
             rcvm.ClearData();
 
             Console.WriteLine();
 
-            rcvm.GetRecipeCost(2);
+            //rcvm.GetRecipeCost(2);
             PrintData((IEnumerable<RecipeCost>) rcvm.Items);
             rcvm.ClearData();
         }
@@ -66,12 +64,12 @@ namespace IngredientCalculator
 
             // Seed Recipe Ingredients
             // Oatmeal
-            rivm.AddData(1, 2, .33, 4); // oatmeal
-            rivm.AddData(1, 3, 1, 2); // honey
-            //Omelet
-            rivm.AddData(2, 3, 1, 2); // honey
-            rivm.AddData(2, 4, .25, 4); // goat cheese
-            rivm.AddData(2, 5, 3, 5); // eggs
+            //rivm.AddData(1, 2, .33, 4); // oatmeal
+            //rivm.AddData(1, 3, 1, 2); // honey
+            ////Omelet
+            //rivm.AddData(2, 3, 1, 2); // honey
+            //rivm.AddData(2, 4, .25, 4); // goat cheese
+            //rivm.AddData(2, 5, 3, 5); // eggs
 
             // Populate the models
             ivm.FetchData();

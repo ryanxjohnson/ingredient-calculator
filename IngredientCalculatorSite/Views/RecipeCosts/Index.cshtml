@@ -1,0 +1,69 @@
+﻿@using System.ComponentModel.DataAnnotations
+@model IngredientCalculator.Models.RecipeCost
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => Model.Recipe.RecipeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => Model.Recipe.Servings)
+        </th>
+        <th>
+            Ingredient Name
+        </th>
+        <th>
+            Ingredient Amount
+        </th>
+        <th>
+            Cost Per Unit
+        </th>
+        <th>
+            Convert From
+        </th>
+        <th>
+            Convert To
+        </th>
+        <th>
+            Cost
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model.RecipeComponents)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Recipe.RecipeName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Recipe.Servings)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.IngredientName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.IngredientAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.CostPerUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ConvertFromUnitName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ConvertToUnitName)
+            </td>
+        </tr>
+    }
+</table>

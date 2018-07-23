@@ -5,7 +5,7 @@ namespace IngredientCalculator.Repositories.RecipeCosts
 {
     public interface IRecipeCostsRepository : IIngredient
     {
-        IEnumerable<RecipeCost> GetRecipeCosts();
-        RecipeCost GetRecipeCost(int id);
+        //IEnumerable<RecipeCost> GetRecipeCosts();
+        //RecipeCost GetRecipeCost(int id);
     }
 }

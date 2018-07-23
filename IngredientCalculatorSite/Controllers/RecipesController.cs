@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using IngredientCalculator.Models;
+using IngredientCalculator.Repositories.Units;
 using IngredientCalculator.ViewModels;
 
 namespace IngredientCalculatorSite.Controllers
@@ -19,7 +20,7 @@ namespace IngredientCalculatorSite.Controllers
         // GET: Recipes/Details/5
         public ActionResult Details(int id)
         {
-            return View((Recipe)RecipeViewModel.FetchData(id));
+            return View(RecipeViewModel.GetRecipeWithIngredients(id));
         }
 
         // GET: Recipes/Create
@@ -53,7 +54,12 @@ namespace IngredientCalculatorSite.Controllers
         // GET: Recipes/Edit/5
         public ActionResult Edit(int id)
         {
-            return View((Recipe)RecipeViewModel.FetchData(id));
+            var ings = (IEnumerable<Ingredient>)new IngredientViewModel().FetchData();
+            ViewBag.Ingredients = ings;
+
+            ViewBag.Units = new UnitSqlRepository().GetUnits();
+            var recipe = RecipeViewModel.GetRecipeWithIngredients(id);
+            return View(recipe);
         }
 
         // POST: Recipes/Edit/5
@@ -66,12 +72,19 @@ namespace IngredientCalculatorSite.Controllers
                 {
                     Id = id,
                     RecipeName = Convert.ToString(collection["RecipeName"]),
-                    Servings = Convert.ToInt32(collection["Servings"])
+                    Servings = Convert.ToInt32(collection["Servings"]),
                 };
+
+                //var recipeIngredients = new RecipeIngredients
+                //{
+                //    Id = Convert.ToInt32(collection["RecipeIngredientsId"]),
+                //    IngredientId = Convert.ToInt32(collection["Ingredient.Id"]),
+                //    RecipeIngredientUnitId = Convert.ToInt32(collection["Unit.Id"])
+                //};
 
                 RecipeViewModel.UpdateData(recipe);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit", "Recipes", new { id });
             }
             catch
             {

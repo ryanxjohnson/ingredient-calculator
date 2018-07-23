@@ -88,7 +88,7 @@
     <Compile Include="Repositories\RecipeIngredients\FakeRecipeIngredientsRepository.cs" />
     <Compile Include="Repositories\RecipeIngredients\IRecipeIngredientsRepository.cs" />
     <Compile Include="Models\RecipeIngredients.cs" />
-    <Compile Include="Models\RecipeComponent.cs" />
+    <Compile Include="Models\RecipeCostComponent.cs" />
     <Compile Include="Models\RecipeCost.cs" />
     <Compile Include="Business\RecipeCostCalculator.cs" />
     <Compile Include="Repositories\Ingredients\FakeIngredientRepository.cs" />

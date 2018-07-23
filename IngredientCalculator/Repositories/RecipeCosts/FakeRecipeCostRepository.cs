@@ -17,9 +17,9 @@ namespace IngredientCalculator.Repositories.RecipeCosts
                         RecipeName = "Oatmeal with Honey",
                         Servings = 1
                     },
-                    RecipeComponents = new List<RecipeComponent>
+                    RecipeComponents = new List<RecipeCostComponent>
                     {
-                        new RecipeComponent
+                        new RecipeCostComponent
                         {
                             IngredientName = "Oatmeal",
                             IngredientAmount = .33,
@@ -27,7 +27,7 @@ namespace IngredientCalculator.Repositories.RecipeCosts
                             CostPerUnit = .18m,
                             ConvertToUnitName = "ounce"
                         },
-                        new RecipeComponent
+                        new RecipeCostComponent
                         {
                             IngredientName = "Honey",
                             IngredientAmount = 1,
@@ -45,9 +45,9 @@ namespace IngredientCalculator.Repositories.RecipeCosts
                       RecipeName = "Omelet with Goat Cheese",
                       Servings = 1
                     },
-                    RecipeComponents = new List<RecipeComponent>
+                    RecipeComponents = new List<RecipeCostComponent>
                     {
-                        new RecipeComponent
+                        new RecipeCostComponent
                         {
                             IngredientName = "Eggs",
                             IngredientAmount = 3,
@@ -55,7 +55,7 @@ namespace IngredientCalculator.Repositories.RecipeCosts
                             CostPerUnit = .17m,
                             ConvertToUnitName = "each"
                         },
-                        new RecipeComponent
+                        new RecipeCostComponent
                         {
                             IngredientName = "Honey",
                             IngredientAmount = 1,
@@ -63,7 +63,7 @@ namespace IngredientCalculator.Repositories.RecipeCosts
                             CostPerUnit = .41m,
                             ConvertToUnitName = "ounce"
                         },
-                        new RecipeComponent
+                        new RecipeCostComponent
                         {
                             IngredientName = "Goat Cheese",
                             IngredientAmount = .23,

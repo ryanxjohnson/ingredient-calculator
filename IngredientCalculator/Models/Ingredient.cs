@@ -4,7 +4,7 @@ namespace IngredientCalculator.Models
 {
     public class Ingredient
     {
-        public int Id;
+        public int Id { get; set; }
         public string IngredientName { get; set; }
         public int IngredientTypeId { get; set; }
         public decimal TotalPackageCost { get; set; }
