@@ -51,13 +51,13 @@ namespace IngredientCalculatorSite.Controllers
             var recipeIngredient = new RecipeIngredients
             {
                 Id = recipeIngredientsId,
-                RecipeId = 0,
-                IngredientId = 0,
-                IngredientAmount = 0.0,
-                RecipeIngredientUnitId = 0
+                RecipeId = Convert.ToInt32(collection["RecipeId"]),
+                IngredientId = Convert.ToInt32(collection["IngredientId"]),
+                IngredientAmount = Convert.ToDouble(collection["IngredientAmount"]),
+                RecipeIngredientUnitId = Convert.ToInt32(collection["RecipeIngredientUnitId"])
             };
 
-            //RecipeViewModel.UpdateData(recipeIngredient);
+            RecipeIngredientsViewModel.UpdateData(recipeIngredient);
 
             return RedirectToAction("Edit", "Recipes", new { id = recipeId });
         }

@@ -14,5 +14,21 @@ namespace IngredientCalculator.ViewModels
         {
             Repository = RepositoryFactory.GetRecipeCostsRepository(repositoryType);
         }
+
+        public decimal SumOfAllIngredientsForRecipe(int recipeId)
+        {
+            var data = (IEnumerable<RecipeCostComponent>)FetchData(recipeId);
+            return RecipeCostCalculator.CalculateCostOfIngredients(data);
+        }
+
+        public decimal CalculateRecipeCost(Recipe recipe)
+        {
+            return recipe.Servings * SumOfAllIngredientsForRecipe(recipe.Id);
+        }
+
+        public decimal CalculateCostOfSingleIngredientInARecipe(RecipeCostComponent recipeCostComponent)
+        {
+            return RecipeCostCalculator.CostOfIngredient(recipeCostComponent);
+        }
     }
 }

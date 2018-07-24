@@ -2,8 +2,11 @@
 {
     public class RecipeIngredientInfo
     {
-        public int RecipeId { get; set; }
+        public Recipe Recipe { get; set; }
         public Ingredient Ingredient { get; set; }
+
+        public int RecipeId { get; set; }
+        
         public double IngredientAmount { get; set; }
         public int RecipeIngredientUnitId { get; set; }
         public decimal Cost { get; set; }

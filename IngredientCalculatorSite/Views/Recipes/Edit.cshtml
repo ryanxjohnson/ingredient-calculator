@@ -35,6 +35,14 @@
                 @Html.ValidationMessageFor(model => model.Servings, "", new { @class = "text-danger" })
             </div>
         </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cost, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Cost)
+            </div>
+
+        </div>
 
     </div>
 }

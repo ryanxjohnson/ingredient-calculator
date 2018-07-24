@@ -8,6 +8,8 @@ namespace IngredientCalculator.Models
         public string RecipeName { get; set; }
         public int Servings { get; set; }
 
+        public decimal Cost { get; set; }
+
         public List<RecipeIngredientInfo> RecipeIngredients;
     }
 }

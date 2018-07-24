@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using IngredientCalculator.Models;
 using IngredientCalculator.Repositories.Units;
@@ -14,7 +15,7 @@ namespace IngredientCalculatorSite.Controllers
         // GET: Recipes
         public ActionResult Index()
         {
-            return View((IEnumerable<Recipe>)RecipeViewModel.FetchData());
+            return View(RecipeViewModel.GetRecipesWithCost());
         }
 
         // GET: Recipes/Details/5
@@ -58,8 +59,7 @@ namespace IngredientCalculatorSite.Controllers
             ViewBag.Ingredients = ings;
 
             ViewBag.Units = new UnitSqlRepository().GetUnits();
-            var recipe = RecipeViewModel.GetRecipeWithIngredients(id);
-            return View(recipe);
+            return View(RecipeViewModel.GetRecipeWithIngredients(id));
         }
 
         // POST: Recipes/Edit/5
@@ -75,20 +75,13 @@ namespace IngredientCalculatorSite.Controllers
                     Servings = Convert.ToInt32(collection["Servings"]),
                 };
 
-                //var recipeIngredients = new RecipeIngredients
-                //{
-                //    Id = Convert.ToInt32(collection["RecipeIngredientsId"]),
-                //    IngredientId = Convert.ToInt32(collection["Ingredient.Id"]),
-                //    RecipeIngredientUnitId = Convert.ToInt32(collection["Unit.Id"])
-                //};
-
                 RecipeViewModel.UpdateData(recipe);
 
                 return RedirectToAction("Edit", "Recipes", new { id });
             }
             catch
             {
-                return View();
+                return View("Index", "Index");
             }
         }
 

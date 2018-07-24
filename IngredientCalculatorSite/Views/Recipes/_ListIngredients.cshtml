@@ -12,6 +12,9 @@
         <th>
             Ingredient
         </th>
+        <th>
+            Ingredient Cost
+        </th>
         <th></th>
     </tr>
     <tr></tr>
@@ -28,6 +31,9 @@
             </td>
             <td>
                 @Html.DisplayFor(m => r.Ingredient.IngredientName)
+            </td>
+            <td>
+                @Html.DisplayFor(m => r.Cost)
             </td>
         </tr>
     }

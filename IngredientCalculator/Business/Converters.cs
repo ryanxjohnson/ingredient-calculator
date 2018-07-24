@@ -37,5 +37,10 @@
         {
             return cup * 16.0;
         }
+
+        public static double GramToOunce(double gram)
+        {
+            return gram * 0.035274;
+        }
     }
 }
