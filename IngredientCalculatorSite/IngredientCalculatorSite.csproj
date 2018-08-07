@@ -146,7 +146,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngredientsController.cs" />
-    <Compile Include="Controllers\RecipeCostsController.cs" />
     <Compile Include="Controllers\RecipeIngredientsController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -206,7 +205,6 @@
     <Content Include="Views\Recipes\_ListIngredients.cshtml" />
     <Content Include="Views\Recipes\_EditIngredients.cshtml" />
     <Content Include="Views\Recipes\_EditIngredientLineItem.cshtml" />
-    <Content Include="Views\RecipeCosts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

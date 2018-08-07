@@ -13,6 +13,13 @@ namespace IngredientCalculator.Business
                 recipeIngredientInfo.Unit.UnitName,
                 recipeIngredientInfo.Ingredient.Unit.UnitName,
                 recipeIngredientInfo.IngredientAmount) * recipeIngredientInfo.Ingredient.CostPerUnit * recipeIngredientInfo.Recipe.Servings;
+
+            // test this out
+            //return (decimal)GetConvertedAmount(
+            //           recipeIngredientInfo.Ingredient.Unit.UnitName,
+            //    recipeIngredientInfo.Unit.UnitName,
+                       
+            //           recipeIngredientInfo.IngredientAmount) * recipeIngredientInfo.Ingredient.CostPerUnit * recipeIngredientInfo.Recipe.Servings;
         }
 
         public static decimal CalculateRecipe(IEnumerable<RecipeIngredientInfo> recipeIngredientInfos)
@@ -40,50 +47,79 @@ namespace IngredientCalculator.Business
 
         private static double GetConvertedAmount(string convertFromUnitName, string convertToUnitName, double ingredientAmount)
         {
-            if (convertFromUnitName == convertToUnitName) return 1;
+            if (convertFromUnitName == convertToUnitName) return ingredientAmount;
 
             // TODO: Add grams, particularly for dry measurements ie 25g honeycomb is .88oz / 1 cup
             switch (convertFromUnitName)
             {
                 case "cup":
-                    switch (convertToUnitName)
-                    {
-                        case "ounce":
-                            return Converters.CupToOunce(ingredientAmount);
-                        default:
-                            throw new Exception($"No valid convert to unit: {convertToUnitName}");
-                    }
+                    return ConvertFromCup(convertToUnitName, ingredientAmount);
                 case "tablespoon":
-                    switch (convertToUnitName)
-                    {
-                        case "ounce":
-                            return Converters.TableSpoonToOunce(ingredientAmount);
-                        default:
-                            throw new Exception($"No valid convert to unit: {convertToUnitName}");
-                    }
+                    return ConvertFromTableSpoon(convertToUnitName, ingredientAmount);
                 case "teaspoon":
+                    return ConvertFromTeaSpoon(convertToUnitName, ingredientAmount);
                 case "ounce":
-                    switch (convertToUnitName)
-                    {
-                        case "tablespoon":
-                            return Converters.OunceToTableSpoon(ingredientAmount);
-                        case "cup":
-                            return Converters.OunceToCup(ingredientAmount);
-                        default:
-                            throw new Exception($"No valid convert to unit: {convertToUnitName}");
-                    }
+                    return ConvertFromOunce(convertToUnitName, ingredientAmount);
                 case "gram":
-                    switch (convertToUnitName)
-                    {
-                        case "ounce":
-                            return Converters.GramToOunce(ingredientAmount);
-                        default:
-                            throw new Exception($"No valid convert to unit: {convertToUnitName}");
-                    }
+                    return ConvertFromGram(convertToUnitName, ingredientAmount);
                 case "each":
                     return ingredientAmount;
                 default:
                     throw new Exception($"No valid unit: {convertFromUnitName}");
+            }
+        }
+
+        private static double ConvertFromCup(string convertToUnitName, double ingredientAmount)
+        {
+            switch (convertToUnitName)
+            {
+                case "ounce":
+                    return Converters.CupToOunce(ingredientAmount);
+                default:
+                    throw new Exception($"No valid convert to unit: {convertToUnitName}");
+            }
+        }
+
+        private static double ConvertFromTableSpoon(string convertToUnitName, double ingredientAmount)
+        {
+            switch (convertToUnitName)
+            {
+                case "ounce":
+                    return Converters.TableSpoonToOunce(ingredientAmount);
+                default:
+                    throw new Exception($"No valid convert to unit: {convertToUnitName}");
+            }
+        }
+
+        private static double ConvertFromTeaSpoon(string convertToUnitName, double ingredientAmount)
+        {
+            var tableSpoon = Converters.TeaSpoonToTableSpoon(ingredientAmount);
+            return ConvertFromTableSpoon(convertToUnitName, tableSpoon);
+        }
+
+        private static double ConvertFromOunce(string convertToUnitName, double ingredientAmount)
+        {
+            switch (convertToUnitName)
+            {
+                case "tablespoon":
+                    return Converters.OunceToTableSpoon(ingredientAmount);
+                case "cup":
+                    return Converters.OunceToCup(ingredientAmount);
+                default:
+                    throw new Exception($"No valid convert to unit: {convertToUnitName}");
+            }
+        }
+
+        private static double ConvertFromGram(string convertToUnitName, double ingredientAmount)
+        {
+            switch (convertToUnitName)
+            {
+                case "ounce":
+                    return Converters.GramToOunce(ingredientAmount);
+                case "each":
+                    return ingredientAmount;
+                default:
+                    throw new Exception($"No valid convert to unit: {convertToUnitName}");
             }
         }
     }

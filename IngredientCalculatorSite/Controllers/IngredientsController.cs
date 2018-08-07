@@ -43,7 +43,7 @@ namespace IngredientCalculatorSite.Controllers
                     IngredientName = collection["IngredientName"],
                     IngredientTypeId = Convert.ToInt32(collection["IngredientTypeDropDownList"]),
                     TotalPackageCost = Convert.ToDecimal(collection["TotalPackageCost"]),
-                    TotalPackageVolume = Convert.ToInt32(collection["TotalPackageVolume"]),
+                    TotalPackageVolume = Convert.ToDouble(collection["TotalPackageVolume"]),
                     TotalPackageVolumeUnitId = Convert.ToInt32(collection["UnitDropDownList"]),
                     CostPerUnit = Convert.ToDecimal(collection["CostPerUnit"]),
                     ExpirationDays = Convert.ToInt32(collection["ExpirationDays"])
@@ -55,7 +55,7 @@ namespace IngredientCalculatorSite.Controllers
             }
             catch
             {
-                return View();
+                return View("Index");
             }
         }
 
@@ -79,7 +79,7 @@ namespace IngredientCalculatorSite.Controllers
                     IngredientName = Convert.ToString(collection["IngredientName"]),
                     IngredientTypeId = Convert.ToInt32(collection["IngredientTypeId"]),
                     TotalPackageCost = Convert.ToDecimal(collection["TotalPackageCost"]),
-                    TotalPackageVolume = Convert.ToInt32(collection["TotalPackageVolume"]),
+                    TotalPackageVolume = Convert.ToDouble(collection["TotalPackageVolume"]),
                     TotalPackageVolumeUnitId = Convert.ToInt32(collection["TotalPackageVolumeUnitId"]),
                     CostPerUnit = Convert.ToDecimal(collection["CostPerUnit"]),
                     ExpirationDays = Convert.ToInt32(collection["ExpirationDays"])
